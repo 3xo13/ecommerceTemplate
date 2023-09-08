@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flex-center {
+  @apply flex items-center justify-center
+}
+
+.flex-row-center {
+  @apply flex items-center justify-center flex-row
+}
+
+.flex-col-center {
+  @apply flex items-center justify-center flex-col
+}
+
+.flex-down {
+  @apply flex items-end justify-center 
+}
+
+.flex-left {
+  @apply flex items-end justify-start 
+}
+
+.flex-right {
+  @apply flex items-end justify-end 
+}
+
+.red {
+  @apply bg-red-100
+}
+
+.green {
+  @apply bg-green-100
+}

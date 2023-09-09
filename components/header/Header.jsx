@@ -6,7 +6,7 @@ const Header = () => {
         <div className='w-[80%] h-full  flex flex-row items-end justify-center border-b-2'>
             <div className='header-left-col w-1/2 h-full flex-center flex-row '>
                 <div className='w-2/12 h-full flex items-center justify-start '>
-                    <img src="/icons/paw.svg" alt="logo" className='lg:w-10 lg:h-10 object-contain '/>
+                    <img src="/assets/icons/general/paw.svg" alt="logo" className='lg:w-10 lg:h-10 object-contain '/>
                 </div>
                 <div className='navContainer w-10/12 flex-center'>
                     <nav className="w-full h-full flex flex-row items-center justify-start gap-10 ">
@@ -27,13 +27,13 @@ const Header = () => {
             </div>
             <div className="w-1/2 h-full flex flex-row items-center justify-end gap-5 ">
                 <button className="cursor-pointer">
-                    <img src="/icons/search.svg" alt="" className="w-8 h-6 "/>
+                    <img src="/assets/icons/general/search.svg" alt="" className="w-8 h-6 "/>
                 </button>
                 <button className="cursor-pointer">
-                    <img src="/icons/user.svg" alt="" className="w-8 h-6 "/>
+                    <img src="/assets/icons/header/user.svg" alt="" className="w-8 h-6 "/>
                 </button>
                 <button className="cursor-pointer">
-                    <img src="/icons/shopping_cart.svg" alt="" className="w-8 h-6 "/>
+                    <img src="/assets/icons/header/shopping_cart.svg" alt="" className="w-8 h-6 "/>
                 </button>
             </div>
         </div>

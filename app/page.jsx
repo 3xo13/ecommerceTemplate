@@ -1,4 +1,5 @@
 import CategoryCardSection from "@/components/categories/CategoryCardSection"
+import SpecialOffers from "@/components/offers/specialOffers"
 
 export default function Home() {
     return (
@@ -33,6 +34,12 @@ export default function Home() {
               <div className=" flex-row-center w-full h-4/6 ">
                 <CategoryCardSection />
               </div>
+            </section>
+            <section className="screen ">
+              <div className="w-2/6 h-full"> 
+                <SpecialOffers />
+              </div>
+              <div className="w-4/6 h-full"></div>
             </section>
         </main>
     )

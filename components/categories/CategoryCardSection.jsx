@@ -1,5 +1,5 @@
 import CategoryCard from "./CategoryCard"
-import { Category } from "@/db/category"
+import { Category } from "@/db/category";
 
 const CategoryCardSection = async () => {
     const sixCategories = await Category.find({}).limit(6);

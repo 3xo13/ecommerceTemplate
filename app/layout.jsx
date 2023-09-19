@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
   }
   return (
     <html lang="en">
-      <body className={`${inter.className} w-[100dvw] max-w-[100dvw] overflow-x-hidden`}>
+      <body className={`${inter.className} w-[100dvw] max-w-[100dvw] overflow-x-hidden `}>
         <Header />
         {children}
         <Footer />

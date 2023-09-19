@@ -63,3 +63,29 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+
+
+const testUser = {
+    username: 'Karem',
+    email:'alkarim1310@gmail.ccom',
+    password: 'hashedPassword',
+    addresses: [{
+        street: 'test text street',
+        city: 'test text city',
+        state: 'test text state',
+        country: 'test text country',
+        postalCode: 'test text postalcode'
+    }],
+    profile: {
+        firstName: 'kerim',
+        lastName: 'dag',
+        avatarUrl: '/assets/images/general/maleAvatar.jpg',
+        profileImage: '/assets/images/general/maleAvatar.jpg',
+        bio: 'Welcome to my page',
+        socialLinks: {
+          facebook: 'https://www.facebook.com/',
+          twitter: 'https://www.twitter.com/',
+          linkedin: 'https://www.linkedin.com/',
+        }
+    }
+}

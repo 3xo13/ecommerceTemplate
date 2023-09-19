@@ -29,9 +29,11 @@ const Header = () => {
                 <button className="cursor-pointer">
                     <img src="/assets/icons/general/search.svg" alt="" className="w-8 h-6 "/>
                 </button>
+                <Link href='/profile'>
                 <button className="cursor-pointer">
                     <img src="/assets/icons/header/user.svg" alt="" className="w-8 h-6 "/>
                 </button>
+                </Link>
                 <button className="cursor-pointer">
                     <img src="/assets/icons/header/shopping_cart.svg" alt="" className="w-8 h-6 "/>
                 </button>

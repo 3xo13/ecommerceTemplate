@@ -49,3 +49,27 @@
 .full {
   @apply w-full h-full
 }
+
+.light-gray {
+  @apply bg-gray-100 
+}
+
+.dark-gray {
+  @apply bg-gray-200
+}
+
+.primary {
+  @apply text-gray-800
+}
+
+.dash-li {
+  @apply text-end pr-5 mt-2 capitalize cursor-pointer
+}
+
+.dash-btn {
+  @apply w-fit h-fit py-1 px-3 bg-white rounded-lg cursor-pointer hover:bg-gray-100 capitalize
+}
+
+.full-w-btn {
+  @apply w-full h-fit py-1 px-3 bg-white rounded-lg cursor-pointer hover:bg-gray-200 capitalize
+}

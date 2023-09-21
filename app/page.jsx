@@ -1,5 +1,5 @@
 import CategoryCardSection from "@/components/categories/CategoryCardSection"
-import SpecialOffers from "@/components/offers/specialOffers"
+import SpecialOffers from "@/components/offers/SpecialOffers"
 // import UploadProfileImg from "@/components/forms/uploadProfileImg"
 
 export default function Home() {
@@ -43,9 +43,9 @@ export default function Home() {
                     <CategoryCardSection/>
                 </div>
             </section>
-            <section className="screen ">
-                <div className="w-2/6 h-full">
-                    <SpecialOffers/>
+            <section className="screen row">
+                <div className="w-2/6 h-full flex-col-center">
+                    <SpecialOffers />
                 </div>
                 <div className="w-4/6 h-full"></div>
             </section>

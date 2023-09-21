@@ -13,6 +13,8 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
+  // console.log(children.props.childProp.segment);
+  const childName = children.props.childProp.segment;
   try {
     await connectToDB()
   } catch (error) {
@@ -21,9 +23,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} w-[100dvw] max-w-[100dvw] overflow-x-hidden `}>
-        <Header />
+        {childName != 'dashboard' && <Header />}
         {children}
-        <Footer />
+        {childName != 'dashboard' && <Footer />}
         </body>
     </html>
   )

@@ -1,11 +1,12 @@
 import CategoryCard from "./CategoryCard"
 import { Category } from "@/db/category";
+import { v4 as uuidv4 } from 'uuid';
 
 const CategoryCardSection = async () => {
     const sixCategories = await Category.find({}).limit(6);
-    // console.log(sixCategories);
-    const cards = sixCategories.map(catObgj => <CategoryCard categoryObj={catObgj}/>)
-    // console.log(cards[0]);
+
+    const cards = sixCategories.map(catObgj => <CategoryCard key={uuidv4()} categoryObj={catObgj}/>)
+
   return (
     <div className="w-full h-fit row gap-5 justify-center">{cards}</div>
   )

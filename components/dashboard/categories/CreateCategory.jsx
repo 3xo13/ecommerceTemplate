@@ -1,10 +1,10 @@
 'use client'
 import {useState, useEffect} from 'react'
 
-const CreateCategory = () => {
+const CreateCategory = ({setCurrentOption}) => {
     const [file, setFile] = useState();
     const [name, setName] = useState();
-    const [sub, setSub] = useState();
+    const [sub, setSub] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -22,11 +22,7 @@ const CreateCategory = () => {
                 throw new Error('error while fteching')
             }
             const jsonData = await res.json()
-            console.log(
-                "🚀 ~ file: CreateCategory.jsx:27 ~ handleSubmit ~ jsonData:",
-                jsonData
-            )
-
+            setCurrentOption('get')
         } catch (error) {
             console.log(error);
         }
@@ -67,7 +63,7 @@ const CreateCategory = () => {
                     className="border-2 w-2/3 focus:outline-0 text-end"
                     placeholder="add subs as collection of words"/>
 
-                <button className='dash-btn border-2 mt-3'>create category</button>
+                <button className='dash-btn border-2 mt-3' >create category</button>
             </form>
         </div>
     )

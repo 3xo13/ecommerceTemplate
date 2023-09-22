@@ -34,7 +34,6 @@ const CategoryiesManagment = () => {
                 })
                 
                 setRefresh(prev => prev+1)
-                console.log(res);
                 return res
             } catch (error) {
                console.log(error); 
@@ -56,6 +55,7 @@ const CategoryiesManagment = () => {
                         break;
 
                     default:
+                        return
                         break;
                 }
             })
@@ -64,16 +64,23 @@ const CategoryiesManagment = () => {
             {/* categories opetions */}
             <div
                 className="categories-options w-3/12 h-full light-gray col items-end gap-3 px-2 py-5 ">
-                <button className="full-w-btn" onClick={e => setRefresh(prev => prev+1)}>
+                <button className="full-w-btn" onClick={e => {
+                    // setRefresh(prev => prev+1)
+                    setcurrentOption('get');
+                    }}>
                     categories
                 </button>
-                <button className="full-w-btn">
+                <button className="full-w-btn" onClick={e => {
+                    setcurrentOption('put')
+                }}>
                     add category
                 </button>
                 <button className="full-w-btn">
                     update category
                 </button>
-                <button className="full-w-btn">
+                <button className="full-w-btn"  onClick={e => {
+                    setcurrentOption('delete')
+                }}>
                     delete category
                 </button>
 
@@ -81,7 +88,7 @@ const CategoryiesManagment = () => {
             {/* categories cards */}
             <div className="w-9/12 h-full p-3 col  overflow-y-scroll">
                 {catList}
-                {currentOption == 'put' && <CreateCategory/>}
+                {currentOption == 'put' && <CreateCategory setCurrentOption={setcurrentOption}/>}
             </div>
         </div>
     )

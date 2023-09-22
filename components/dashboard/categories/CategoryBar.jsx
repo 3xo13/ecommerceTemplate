@@ -29,7 +29,7 @@ const CategoryBar = ({category, del, update, handleDel}) => {
             <div className='w-5/12 h-full row items-end justify-end gap-2 '>
                 {
                     subs
-                        ?.length
+                        ?.length && subs[0] 
                             ? <button className="dash-btn">sub-Categories</button>
                             : ''
                 }

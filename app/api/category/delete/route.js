@@ -8,22 +8,29 @@ dotenv.config();
 const Bucket = process.env.S3_BUCKET;
 
 const POST = async (request) => {
-    const req = await request.json();
-    const s3ObjectUrl = req.link;
-    const id = req.id;
     try {
-        const urlParts = s3ObjectUrl.split('/');
-        const Key = urlParts.slice(3).join('/');
-        const params = {
-            Bucket,
-            Key: Key,
-        };
-        const deleteObjectCommand = new DeleteObjectCommand(params);
-        await s3Client.send(deleteObjectCommand);
+        const req = await request.json();
+        console.log("🚀 ~ file: route.js:12 ~ POST ~ req:", req)
+        const id = req.id;
+        const s3ObjectUrl = req.link;
+        let Key;
+        if(s3ObjectUrl){
+            const urlParts = s3ObjectUrl.split('/');
+            Key = urlParts.slice(3).join('/');
+            const params = {
+                Bucket,
+                Key: Key,
+            };
+            const deleteObjectCommand = new DeleteObjectCommand(params);
+            await s3Client.send(deleteObjectCommand);
+
+        }
+
         await Category.deleteOne({_id: id})
         return NextResponse.json({sucess: `image with key:${Key} id:${id} was deleted`})
     } catch (error) {
-        return NextResponse.json({fail: 'something wen wrong'})
+        console.log(error);
+        return NextResponse.json({fail: 'something went wrong', error})
     }
 }
 

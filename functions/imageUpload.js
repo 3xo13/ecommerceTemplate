@@ -3,11 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 import s3Client from "@/db/s3Client";
 
+const region = process.env.S3_REGION;
+const Bucket = process.env.S3_BUCKET;
 
 const imageUploader = async (file) => {
-    // const data = await req.formData();
-    // const file = req;
-    console.log("🚀 ~ file: imageUpload.js:22 ~ imageUploader ~ file:", file)
     if (!file) {
         return {success: false}
     }

@@ -67,7 +67,7 @@
 }
 
 .dash-btn {
-  @apply w-fit h-fit py-1 px-3 bg-white rounded-lg cursor-pointer hover:bg-gray-100 capitalize
+  @apply w-fit h-fit py-1 px-3 bg-white rounded-lg cursor-pointer hover:bg-gray-200 capitalize
 }
 
 .full-w-btn {

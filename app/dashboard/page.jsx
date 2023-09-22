@@ -2,8 +2,7 @@ import SidebarList from "@/components/dashboard/lists/SidebarList";
 import {headers} from "@/next.config";
 import {v4 as uuid4} from 'uuid';
 import listData from "@/public/lists/dashboard";
-import CategoryBar from "@/components/dashboard/categories/CategoryBar";
-import CreateCategory from "@/components/dashboard/categories/CreateCategory";
+import CategoryiesManagment from "@/components/dashboard/categories/CategoryiesManagment";
 
 const page = () => {
     // console.log(new Date().toLocaleString());
@@ -17,7 +16,7 @@ const page = () => {
 
     return (
         <div
-            className='dashboard-wrapper w-screen h-fit min-w-screen min-h-screen row dark-gray'>
+            className='dashboard-wrapper w-screen h-screen min-w-screen min-h-screen overflow-hidden row dark-gray'>
             <div className='dashboard-content-container w-9/12 h-screen min-h-screen col '>
                 {/* header */}
                 <div className='dashboard-header-wrapper w-full h-32  pl-5'>
@@ -40,31 +39,8 @@ const page = () => {
                     </div>
                 </div>
                 {/* content body */}
-                <div className='dashboard-content rounded-tr-lg h-full h-full bg-white'>
-                    <div className="w-full h-full flex-row-center">
-                        {/* categories opetions */}
-                        <div
-                            className="categories-options w-3/12 h-full light-gray col items-end gap-3 px-2 py-5 ">
-                            <button
-                                className="full-w-btn">
-                                    add category
-                            </button>
-                            <button
-                                className="full-w-btn">
-                                    update category
-                            </button>
-                            <button
-                                className="full-w-btn">
-                                    delete category
-                            </button>
-
-                        </div>
-                        {/* categories cards */}
-                        <div className="w-9/12 h-full p-3">
-                            {/* <CategoryBar /> */}
-                            <CreateCategory />
-                        </div>
-                    </div>
+                <div className='dashboard-content rounded-tr-lg h-full h-full bg-white overflow-y-scroll'>
+                    <CategoryiesManagment />
 
                 </div>
             </div>

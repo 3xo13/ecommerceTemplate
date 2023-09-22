@@ -1,20 +1,8 @@
-import {S3, S3Client, PutObjectCommand, GetObjectCommand} from "@aws-sdk/client-s3";
+import {PutObjectCommand} from "@aws-sdk/client-s3";
 import dotenv from 'dotenv';
 dotenv.config();
-import {NextResponse} from 'next/server';
+import s3Client from "@/db/s3Client";
 
-const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-const region = process.env.S3_REGION;
-const Bucket = process.env.S3_BUCKET;
-
-const s3Client = new S3Client({
-    region: region,
-    credentials: {
-        accessKeyId: accessKeyId,
-        secretAccessKey: secretAccessKey
-    }
-});
 
 const imageUploader = async (file) => {
     // const data = await req.formData();

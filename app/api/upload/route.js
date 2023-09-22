@@ -1,6 +1,5 @@
 import {S3, S3Client, PutObjectCommand, GetObjectCommand} from "@aws-sdk/client-s3";
-import dotenv from 'dotenv';
-dotenv.config();
+
 import {NextResponse} from 'next/server';
 import imageUploader from "@/functions/imageUpload";
 

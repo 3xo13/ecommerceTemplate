@@ -1,7 +1,8 @@
 import { v4 as uuid4 } from 'uuid'
+import Link from 'next/link'
 
 const SidebarList = ({header,icon,list}) => {
-    const listItems = list.map(item => <li key={uuid4()} className='dash-li'>{item}</li>)
+    const listItems = list.map(item => <Link key={uuid4()} href={item.link}><li className='dash-li'>{item.title}</li></Link> ) 
     return (
         <div className='mb-5 capitalize'>
             <div className='flex flex-row items-center justify-end pr-5 '>

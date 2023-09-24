@@ -10,7 +10,7 @@ const Bucket = process.env.S3_BUCKET;
 const POST = async (request) => {
     try {
         const req = await request.json();
-        console.log("🚀 ~ file: route.js:12 ~ POST ~ req:", req)
+        // console.log("🚀 ~ file: route.js:12 ~ POST ~ req:", req)
         const id = req.id;
         const s3ObjectUrl = req.link;
         let Key;

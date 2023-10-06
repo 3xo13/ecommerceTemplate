@@ -22,7 +22,7 @@ const CreateCategory = ({setCurrentOption}) => {
                 throw new Error('error while fteching')
             }
             const jsonData = await res.json()
-            setCurrentOption('get')
+            setCurrentOption(true)
         } catch (error) {
             console.log(error);
         }

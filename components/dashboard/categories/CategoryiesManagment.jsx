@@ -7,7 +7,8 @@ import EditCategory from "./EditCategory"
 
 const CategoryiesManagment = () => {
     const [categories, setCategories] = useState();
-    const [currentOption, setcurrentOption] = useState('get');
+    // currentoption is true display categories else add a new
+    const [currentOption, setcurrentOption] = useState(true);
     const [refresh, setRefresh] = useState(0);
 
     useEffect(() => {
@@ -43,59 +44,32 @@ const CategoryiesManagment = () => {
         deleteRes()
     }
 
-
-    let catList = categories?.length && categories
-            ?.map(cat => <DashCategoryCard
-                            key={uuid4()}
-                            category={cat}
-                            del={false}
-                            update={false}
-                            handleDel={handleDelete}/>
+    let catList = categories
+        ?.length && categories
+            ?.map(
+                cat => <DashCategoryCard
+                    key={uuid4()}
+                    category={cat}
+                    del={false}
+                    update={false}
+                    handleDel={handleDelete}/>
             )
- 
+
     return (
         <div className="w-full h-full flex-col-center">
-
-            <div className="w-full h-full px-10 py-5  row flex-wrap gap-5 justify-end overflow-y-auto">
-                {catList}
+            <div className="w-full h-20 row justify-end items-center gap-5 pr-10 ">
+                <button className="dash-btn border-2 ">list</button>
+                <button
+                    className="dash-btn border-2 "
+                    onClick={e => setcurrentOption(!currentOption)}>add</button>
+            </div>
+            <div
+                className="w-full h-full px-10 py-5  row flex-wrap gap-5 justify-end overflow-y-auto">
+                {currentOption && catList}
+                {!currentOption && <CreateCategory setCurrentOption={setcurrentOption}/>}
             </div>
         </div>
     )
 }
 
 export default CategoryiesManagment
-
-/**           
-
-<div
-className="categories-options w-full h-20 light-gray row items-center justify-end gap-3 px-7 py-5 ">
-<button
-    className="dash-btn"
-    onClick={e => {
-        setcurrentOption('delete')
-    }}>
-    delete category
-</button>
-<button
-    className="dash-btn"
-    onClick={e => {
-        setcurrentOption('update')
-    }}>
-    update category
-</button>
-<button
-    className="dash-btn"
-    onClick={e => {
-        setcurrentOption('put')
-    }}>
-    add category
-</button>
-<button
-    className="dash-btn"
-    onClick={e => {
-        // setRefresh(prev => prev+1)
-        setcurrentOption('get');
-    }}>
-    categories
-</button>
-</div> */

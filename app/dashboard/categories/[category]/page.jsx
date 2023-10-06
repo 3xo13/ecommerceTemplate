@@ -8,7 +8,8 @@ const CategoryPage = ({params}) => {
     const [name, setName] = useState();
     const [sub, setSub] = useState([]);
     const [toggleWarning, setToggleWarning] = useState(false);
-    // let currentImage = category && category.image;
+    let id = category && category._id
+    let currentImage = category && category.image;
     const localDate = category && new Date(category.created).toLocaleDateString()
     // console.log('category',category);
     useEffect(() => {
@@ -44,6 +45,22 @@ const CategoryPage = ({params}) => {
         } catch (error) {
             console.log(error);
         }
+    }
+
+    const handleDelete = (e, id, link) => {
+        const deleteCat = async () => {
+            try {
+                const res = await fetch('/api/category/delete', {
+                    method: 'POST',
+                    body: JSON.stringify({link, id})
+                })
+
+                return res
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        deleteCat()
     }
 
     return (
@@ -136,7 +153,7 @@ const CategoryPage = ({params}) => {
                                                 className='text-lg capitalize w-[19vw] h-8
                                 bg-red-500 hover:bg-red-400 text-white mt-5
                                 mt-0 rounded '
-                                onClick={e => setToggleWarning(false)}>
+                                onClick={e => handleDelete(e, id, currentImage)}>
                                                 delete</button>
                                         </div>
                                     </div>

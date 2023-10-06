@@ -15,7 +15,7 @@ const DashCategoryCard = ({category, del, update, handleDel, handelUpdate}) => {
             className="w-48 h-fit rounded-lg dark-gray hover:bg-gray-100 p-1 col justify-center items-center cursor-pointer">
             <Link href={`/dashboard/categories/${id}`}>
                 <img src={image} alt="category image" className="w-40 h-40 rounded-lg m-2"/>
-                <h3 className='text-end m-3 capitalize'>{name}</h3>
+                <h3 className='m-3 capitalize  text-center'>{name}</h3>
 
             </Link>
         </div>

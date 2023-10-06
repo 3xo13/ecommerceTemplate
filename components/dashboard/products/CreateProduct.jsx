@@ -5,6 +5,7 @@ import {useDropzone} from 'react-dropzone';
 
 const CreateProduct = ({setListProducts}) => {
     const [uploadedImages, setUploadedImages] = useState([]);
+    const [currentImage, setCurrentImage] = useState('');
     console.log(uploadedImages[0]);
     const onDrop = (acceptedFiles) => {
         // Update state with the uploaded files
@@ -42,9 +43,13 @@ const CreateProduct = ({setListProducts}) => {
             : file;
         return (
             <div key={index} className="m-4 group">
-                <div className='w-32 h-32 absolute bg-gray-100/50 hidden group-hover:flex flex-col items-center justify-center gap-2'>
+                    <img
+                        src={url}
+                        alt={`uploaded-${index}`}
+                        className="max-w-xs max-h-xs w-32 h-32 object-contain"/>
+                <div className='w-32 h-14 flex flex-row items-center justify-center gap-2'>
                     <button className=' bg-yellow-500 hover:bg-yellow-400 text-white px-2 rounded capitalize'
-                    onClick={e => handleImageDelete(e, index)}
+                    onClick={e => setCurrentImage(url)}
                     >
                         view
                     </button>
@@ -54,18 +59,23 @@ const CreateProduct = ({setListProducts}) => {
                         delete
                     </button>
                 </div>
-                <img
-                    src={url}
-                    alt={`uploaded-${index}`}
-                    className="max-w-xs max-h-xs w-32 h-32 object-contain"/>
             </div>
         ); 
     })
 
+
+
     return (
         <div className='w-full h-full row '>
-            <div className='absolute w-screen h-screen top-0 left-0 hidden'>
+            <div className={`absolute w-screen h-screen top-0 left-0 bg-gray-500/50 ${currentImage ? '' : 'hidden'} overflow-y-auto`}>
                 {/* create view image component here */}
+                <div className='w-full h-20 flex items-center justify-end pr-14 text-2xl' >
+                    <button onClick={e => setCurrentImage('')} 
+                    className='bg-red-600 hover:bg-red-500 text-white px-1 rounded capitalize'>close</button>
+                </div>
+                <div className='w-full h-full flex-center overflow-y-auto'>
+                    {currentImage && <img src={currentImage} alt='product image' className='w-[80%] h-[80%] object-contain'/>}
+                </div>
             </div>
             <div className='w-6/12 h-full col items-center '>
                 <div>

@@ -73,3 +73,7 @@
 .full-w-btn {
   @apply w-full h-fit py-1 px-3 bg-white rounded-lg cursor-pointer hover:bg-gray-200 capitalize
 }
+
+.required {
+  @apply after:content-['*'] after:ml-0.5 after:text-red-500
+}

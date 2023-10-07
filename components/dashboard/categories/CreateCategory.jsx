@@ -35,11 +35,12 @@ const CreateCategory = ({setCurrentOption}) => {
                 action="/api/category/create"
                 encType="multipart/form-data"
                 onSubmit={e => handleSubmit(e)}>
-                <label htmlFor="category_name" className="capitalize">name</label>
+                <label htmlFor="category_name" className="capitalize required">name</label>
                 <input
                     type="text"
                     name='name'
                     id="category_name"
+                    required
                     onChange={e => setName(e.target.value)}
                     className="border-2 w-2/3 focus:outline-0"/>
 

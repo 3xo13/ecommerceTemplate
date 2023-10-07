@@ -1,10 +1,10 @@
 'use client'
 import {useState, useEffect} from 'react'
 import CreateProduct from '@/components/dashboard/products/CreateProduct';
-
+import DashboardProducts from '@/components/dashboard/products/DashboardProducts';
 
 const dashboardProductsPage = () => {
-    const [listProducts, setListProducts] = useState(false);
+    const [listProducts, setListProducts] = useState(true);
 
 
   return (
@@ -13,8 +13,9 @@ const dashboardProductsPage = () => {
             <button className='dash-btn border-2 shadow' onClick={e => setListProducts(!listProducts)}>add</button>
             <button className='dash-btn border-2 shadow'>list</button>
         </div> 
-        <div className='w-full h-full overflow-y-auto p-5'>
+        <div className='w-full h-full overflow-y-auto pb-10'>
             {!listProducts && <CreateProduct setListProducts={setListProducts}/>}
+            {listProducts && <DashboardProducts />}
         </div> 
     </div>
   )
